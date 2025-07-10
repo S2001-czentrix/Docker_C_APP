@@ -1,12 +1,19 @@
-# Stage 1: Build
-FROM alpine as builder
+FROM alpine:latest
+
+# Install build tools
 RUN apk add --no-cache gcc musl-dev
+
+# Create app directory
 WORKDIR /app
+
+# Copy and build C file
 COPY src/main.c .
+
 RUN gcc -o writer main.c
 
-# Stage 2: Minimal Runtime
-FROM scratch
-COPY --from=builder /app/writer /writer
-ENTRYPOINT ["/writer"]
+# Mount point for volume
+VOLUME ["/app"]
+
+# Set execution entrypoint
+CMD ["./writer"]
 
