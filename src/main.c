@@ -3,7 +3,7 @@
 #include <time.h>
 
 int main() {
-    FILE *fp = fopen("test.txt", "a");
+    FILE *fp = fopen("/data/test.txt", "a");
     if (fp == NULL) {
         perror("Failed to open file");
         return 1;
