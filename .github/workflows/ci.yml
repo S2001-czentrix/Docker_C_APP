@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]   # Run this on every push to main branch
+    branches: [main]
 
 jobs:
   build:
@@ -26,6 +26,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: yourdockerhub/file-writer-c:latest
-
+        tags: subh1234tvt/app:latest
 
